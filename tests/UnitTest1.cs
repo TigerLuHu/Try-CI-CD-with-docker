@@ -73,14 +73,16 @@ public class UnitTest1 : IAsyncLifetime, IDisposable
         }
     }
 
-    public async Task DisposeAsync()
+    public Task DisposeAsync()
     {
         // Volume was not removed, the following code does not work
-        await _dbContainer.StopAsync();
-        await _dbContainer.DisposeAsync();
+        // await _dbContainer.StopAsync();
+        // await _dbContainer.DisposeAsync();
 
-        await _appContainer.StopAsync();
-        await _appContainer.DisposeAsync();
+        // await _appContainer.StopAsync();
+        // await _appContainer.DisposeAsync();
+
+        return Task.CompletedTask;
     }
 
     public void Dispose()
